@@ -18,8 +18,8 @@ void* cari(void *arg)
     fi=fopen("Novel.txt","r");
 
     while(fscanf(fi,"%s",c) != EOF){
-	//if (strstr(c, kata) != NULL) //case sensitive
-	if (strcasestr(c, kata) != NULL) //case insensitive
+	if (strstr(c, kata) != NULL) //case sensitive
+	//if (strcasestr(c, kata) != NULL) //case insensitive
 	{
 	   jumlah++;
 	}

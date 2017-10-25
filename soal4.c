@@ -22,29 +22,17 @@ void* faktorial(void *arg)
 
 int main(int argc, char *argv[])
 {
-    int i=0,j=0,angka,N[100];
-    int err;
+    int i,angka,N[100];
     if(argc<2) printf("Belum ada angka yang dimasukkan\n");
-    while(1){
-    	if(argv[j+1] == NULL) break;
-	angka=atoi(argv[j+1]);
-	N[j]=angka;
-	j++;
-    }
-    while(i<j)
+    for(i=1;i<argc;i++)
     {
-        err=pthread_create(&(tid[i]),NULL,&faktorial,&N[i]);//membuat thread
-        if(err!=0)//cek error
-        {
-            printf("\n can't create thread : [%s]",strerror(err));
-        }
-        i++;
+        N[i]=atoi(argv[i]);
+	pthread_create(&(tid[i]),NULL,&faktorial,&N[i]);
     }
-    i=0;
-    while(i<j)
+   
+    for(i=0;i<argc;i++)
     {
 	pthread_join(tid[i],NULL);
-	i++;
     }
     return 0;
 }

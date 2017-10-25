@@ -10,21 +10,20 @@
 
 pthread_t tid[100];
 
-
 void* faktorial(void *arg)
 {
     int i, iter=1;
-    int *num=(void *)arg;
-    pthread_t id=pthread_self();
+    int *num=arg;
   
-        for(i=*num;i>1;i--)
-        {
-            iter*=i;
-        }
+    for(i=*num;i>1;i--)
+    {
+    	iter*=i;
+    }
 	printf("Hasil %d! = %d\n",*num,iter);
   
     return NULL;
 }
+
 int main(void)
 {
     int i=0,j=0,angka,N[100];
@@ -43,10 +42,6 @@ int main(void)
         if(err!=0)//cek error
         {
             printf("\n can't create thread : [%s]",strerror(err));
-        }
-        else
-        {
-            //printf("\n create thread success");
         }
         i++;
     }

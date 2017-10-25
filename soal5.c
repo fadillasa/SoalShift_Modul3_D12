@@ -1,3 +1,5 @@
+#define _GNU_SOURCE //strcasestr
+
 #include<stdio.h>
 #include<string.h>
 #include<pthread.h>
@@ -16,7 +18,9 @@ void* cari(void *arg)
     fi=fopen("Novel.txt","r");
 
     while(fscanf(fi,"%s",c) != EOF){
-   	if(strstr(c,kata) != NULL){
+	//if (strstr(c, kata) != NULL) //case sensitive
+	if (strcasestr(c, kata) != NULL) //case insensitive
+	{
 	   jumlah++;
 	}
     }

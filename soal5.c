@@ -26,8 +26,8 @@ void* cari(void *arg)
 
 int main(int argc, char *argv[])
 {
-    int i=0;
-
+    int i;
+    if(argc<2) printf("Belum ada kata yang dimasukkan\n");
     for(i=1;i<argc;i++)
     {
 	pthread_create(&(tid[i]),NULL,&cari,(void*)argv[i]);

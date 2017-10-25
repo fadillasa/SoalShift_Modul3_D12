@@ -84,5 +84,9 @@ int main () {
 
 		if (turn == 1) turn = 2;
 		else if (turn == 2) turn = 1;
+		
+		if (player1>9 || player2>9) play=0;
 	}
+	
+	printf("Game Over\n");
 }

@@ -11,7 +11,7 @@ int play;
 
 void* lohan(void* args) {
 	while(play){
-		sleep(1);
+		sleep(10);
 		hp_lohan-=15;
 		printf("lohan %d\n",hp_lohan);
 	}
@@ -19,7 +19,7 @@ void* lohan(void* args) {
 
 void* kepiting(void* args) {
 	while(play){
-		sleep(2);
+		sleep(20);
 		hp_kepiting-=10;
 		printf("kepiting %d\n",hp_kepiting);
 	}
@@ -32,9 +32,9 @@ int main () {
 	hp_lohan = 100;
 	hp_kepiting = 100;
 
-    pthread_t tid[2];
+   	pthread_t tid[2];
 	pthread_create(tid+0, NULL, &lohan, NULL);
-    pthread_create(tid+1, NULL, &kepiting, NULL);
+ 	pthread_create(tid+1, NULL, &kepiting, NULL);
 	
 	play=1;
 

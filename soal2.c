@@ -47,11 +47,11 @@ void* guess_bomb(void* args){
 		scanf("%d",&key);
 
 		if (mines[key]) {
-			if (turn == 1) player2++;
-			else if (turn == 2)player1++;
-		} else {
 			if (turn == 1) player1++;
-			else if (turn == 2) player2++;
+			else if (turn == 2)player2++;
+		} else {
+			if (turn == 1) player2++;
+			else if (turn == 2) player1++;
 		}
 	}
 }
